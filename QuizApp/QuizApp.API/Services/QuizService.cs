@@ -1,15 +1,12 @@
-namespace QuizApp.API.Services;
-
-public interface IQuizService
-{
-    Task<int> CalculateScore(QuizAttemptDto attempt);
-    Task<List<HighScoreDto>> GetHighScores(int count = 10);
-}
-
 // Services/QuizService.cs
+using Microsoft.EntityFrameworkCore;
+using QuizApp.API.Data;
+using QuizApp.API.DTOs;
+using QuizApp.API.Models;
+
 namespace QuizApp.API.Services;
 
-public class QuizService : IQuizService 
+public class QuizService : IQuizService
 {
     private readonly QuizDbContext _context;
 

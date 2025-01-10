@@ -1,7 +1,9 @@
 // Controllers/QuizController.cs
 using Microsoft.AspNetCore.Mvc;
+using QuizApp.API.Models;
 using QuizApp.API.Services;
 using QuizApp.API.DTOs;
+using QuizApp.API.Data;
 
 namespace QuizApp.API.Controllers;
 

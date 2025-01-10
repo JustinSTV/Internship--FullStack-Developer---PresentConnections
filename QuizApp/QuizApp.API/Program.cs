@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using QuizApp.API.Data;
+using QuizApp.API.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

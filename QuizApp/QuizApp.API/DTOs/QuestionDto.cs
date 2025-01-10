@@ -31,7 +31,7 @@ public class QuizAnswerDto
 public class HighScoreDto
 {
     public int Position { get; set; }
-    public string Email { get; set; } = string.Empty; 
+    public string Email { get; set; } = string.Empty;
     public int Score { get; set; }
     public DateTime DateTime { get; set; }
 }
