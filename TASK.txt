@@ -1,0 +1,47 @@
+TASK:
+Create a web application solve quiz entries and show high scores from previous results.
+
+Functional requirements:
+There should be 2 pages: for solving the quiz and for displaying high scores;
+Quiz should have 10 questions (any questions you can think of).
+Quiz question should be of 3 different types:
+• Radio buttons (single answer)
+• Checkbox (multiple answers)
+• Textbox (manual text input)
+As an example, quiz can contain 4 single answer questions, 2 text input questions, and 4 multiple answer
+questions.
+When solving quiz, you need to enter Email, which will be saved with the score.
+High score page:
+• Only top 10 places are displayed.
+• Entry should display position, email, score and datetime values.
+• Top 3 places should have gold, silver, bronze colors, corresponding on placements.
+Calculation rules:
+• Radio buttons – if answer is correct (+100 points).
+• Checkbox – ( 100 / good answers) * correctly checked. No decimal points, rounded up.
+• Textbox – Only if text is identical match (+100 points). Should be case insensitive.
+
+Technical requirements:
+
+• The back end should be built using ASP.NET Core and an EF Core in-memory database to store quiz
+entries, answers and high scores.
+• The front end should be built using React and can use a modern UI library such as Bootstrap,
+Material UI, Tailwind, etc.
+• All calculation logic must be implemented in the back-end
+• Code must be shared via GitHub
+• No authentication is needed
+
+
+Nice to have (optional)
+
+• Unit tests in the backend.
+• Dependency injection.
+• Mapper package or custom solution.
+• React Stepper component in Quiz Solving page.
+• Typescript
+
+Evaluation criteria
+• Functionality of the web app (could not be 100% finished).
+• Clean code.
+• Decisions on architecture for both the back end and front end.
+• Tools used to build this app.
+• Design patterns.

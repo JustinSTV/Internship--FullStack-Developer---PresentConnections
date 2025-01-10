@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizApp.API", "QuizApp.API\QuizApp.API.csproj", "{BA760583-3C02-4256-82AF-2D5772689C99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizApp.Core", "QuizApp.Core\QuizApp.Core.csproj", "{D861A206-F12F-41C6-A880-F8D979F39390}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizApp.Tests", "QuizApp.Tests\QuizApp.Tests.csproj", "{37E19726-BF08-4150-8EF4-B200E52456CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA760583-3C02-4256-82AF-2D5772689C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA760583-3C02-4256-82AF-2D5772689C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA760583-3C02-4256-82AF-2D5772689C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA760583-3C02-4256-82AF-2D5772689C99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D861A206-F12F-41C6-A880-F8D979F39390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D861A206-F12F-41C6-A880-F8D979F39390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D861A206-F12F-41C6-A880-F8D979F39390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D861A206-F12F-41C6-A880-F8D979F39390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37E19726-BF08-4150-8EF4-B200E52456CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37E19726-BF08-4150-8EF4-B200E52456CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37E19726-BF08-4150-8EF4-B200E52456CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37E19726-BF08-4150-8EF4-B200E52456CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
