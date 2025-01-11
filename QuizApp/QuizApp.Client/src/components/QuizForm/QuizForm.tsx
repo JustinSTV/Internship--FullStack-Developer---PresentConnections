@@ -12,7 +12,7 @@ interface Props {
 }
 
 const QuizForm = ({ questions, onSubmit }: Props) => {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(-1);
   const [email, setEmail] = useState('');
   const [answers, setAnswers] = useState<QuizAnswer[]>([]);
 

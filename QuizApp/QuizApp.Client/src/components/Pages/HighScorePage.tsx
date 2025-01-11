@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Container, Typography, Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { Container, Typography, Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { HighScore } from '../../types/quizTypes';
 import { getHighScores } from '../../services/api';
 
@@ -8,6 +9,12 @@ const HighScorePage = () => {
   const [highScores, setHighScores] = useState<HighScore[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const navigate = useNavigate();
+
+  const handlePlayAgain = () => {
+    navigate('/');
+  };
 
   useEffect(() => {
     const fetchHighScores = async () => {
@@ -76,7 +83,13 @@ const HighScorePage = () => {
         </Table>
       </TableContainer>
     </Box>
-    
+    <Button 
+      variant="contained" 
+      color="primary" 
+      onClick={handlePlayAgain}
+    >
+    Play Again
+    </Button>
   </Container>
   );
 }
