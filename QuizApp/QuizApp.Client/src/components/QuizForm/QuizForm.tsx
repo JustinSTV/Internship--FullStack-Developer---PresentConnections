@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Box, Stepper, Step, StepLabel, Button, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { Question, QuizAttempt, QuizAnswer } from '../../types/quizTypes';
 
 import QuestionRender from './QuestionRender';
 import EmailStep from './Steps/EmailSteps'
+import RenderSteps from './Steps/RenderSteps';
 
 interface Props {
   questions: Question[];
@@ -15,11 +16,9 @@ const QuizForm = ({ questions, onSubmit }: Props) => {
   const [email, setEmail] = useState('');
   const [answers, setAnswers] = useState<QuizAnswer[]>([]);
 
-  const totalSteps = questions.length + 2;
-
-  const isEmailStep = activeStep === 0;
-  const isLastStep = activeStep === totalSteps - 1;
-  const currentQuestionIndex = activeStep - 1;
+  const isEmailStep = activeStep === -1;
+  const isLastStep = activeStep === questions.length;
+  const currentQuestionIndex = activeStep;
 
   const handleNext = () => {
     setActiveStep((prev) => prev + 1);
@@ -59,20 +58,19 @@ const QuizForm = ({ questions, onSubmit }: Props) => {
 
   return (
     <Box sx={{ width: '100%' }}>
-    <Stepper activeStep={activeStep}>
-      <Step>
-        <StepLabel>Email</StepLabel>
-      </Step>
-      {questions.map((_, index) => (
-        <Step key={index}>
-          <StepLabel>{`Question ${index + 1}`}</StepLabel>
-        </Step>
-      ))}
-    </Stepper>
+      {!isEmailStep && (
+        <RenderSteps
+          activeStep={activeStep}
+          questions={questions}
+        />
+      )}
 
     <Box sx={{ mt: 4, mb: 2 }}>
       {isEmailStep ? (
-        <EmailStep email={email} onChange={setEmail}/>
+        <Box>
+          <Typography sx={{ mb: 2 }}>Please enter email to play!</Typography>
+          <EmailStep email={email} onChange={setEmail}/>
+        </Box>
       ) : isLastStep ? (
         <Typography>Review your answers and submit</Typography>
       ) : (
@@ -93,7 +91,7 @@ const QuizForm = ({ questions, onSubmit }: Props) => {
 
     <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
       <Button
-        disabled={activeStep === 0}
+        disabled={isEmailStep}
         onClick={handleBack}
       >
         Back
@@ -110,7 +108,7 @@ const QuizForm = ({ questions, onSubmit }: Props) => {
         <Button
           variant="contained"
           onClick={handleNext}
-          disabled={isEmailStep ? !email : !getCurrentAnswer(questions[activeStep - 1]?.id)}
+          disabled={isEmailStep ? !email : !getCurrentAnswer(questions[activeStep]?.id)}
         >
           Next
         </Button>
