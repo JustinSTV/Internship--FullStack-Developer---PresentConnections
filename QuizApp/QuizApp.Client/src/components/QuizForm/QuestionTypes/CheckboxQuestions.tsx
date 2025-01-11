@@ -2,12 +2,12 @@ import { FormControl, FormGroup, FormControlLabel, Checkbox } from '@mui/materia
 import { Question } from '../../../types/quizTypes';
 
 interface Props {
-  questions: Question;
+  question: Question;
   onAnswer: (answerIds: number[]) => void;
   selectedAnswerIds: number[];
 }
 
-const CheckBoxQuestions = ({ questions, onAnswer, selectedAnswerIds }: Props) => {
+const CheckBoxQuestions = ({ question, onAnswer, selectedAnswerIds }: Props) => {
 
   const handleChange = (answerId: number) => {
     const newSelectedAnswers = selectedAnswerIds.includes(answerId)
@@ -20,7 +20,7 @@ const CheckBoxQuestions = ({ questions, onAnswer, selectedAnswerIds }: Props) =>
   return (
     <FormControl component='fieldset'>
       <FormGroup>
-        {questions.answers.map(answer => (
+        {question.answers.map(answer => (
           <FormControlLabel
             key={answer.id}
             control={

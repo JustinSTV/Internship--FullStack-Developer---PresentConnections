@@ -15,6 +15,12 @@ const QuizForm = ({ questions, onSubmit }: Props) => {
   const [email, setEmail] = useState('');
   const [answers, setAnswers] = useState<QuizAnswer[]>([]);
 
+  const totalSteps = questions.length + 2;
+
+  const isEmailStep = activeStep === 0;
+  const isLastStep = activeStep === totalSteps - 1;
+  const currentQuestionIndex = activeStep - 1;
+
   const handleNext = () => {
     setActiveStep((prev) => prev + 1);
   };
@@ -51,9 +57,6 @@ const QuizForm = ({ questions, onSubmit }: Props) => {
     return answers.find(a => a.questionId === questionId);
   };
 
-  const isEmailStep = activeStep === 0;
-  const isLastStep = activeStep === questions.length + 1;
-
   return (
     <Box sx={{ width: '100%' }}>
     <Stepper activeStep={activeStep}>
@@ -73,11 +76,18 @@ const QuizForm = ({ questions, onSubmit }: Props) => {
       ) : isLastStep ? (
         <Typography>Review your answers and submit</Typography>
       ) : (
-        <QuestionRender 
-          question={questions[activeStep - 1]}
-          currentAnswer={getCurrentAnswer(questions[activeStep - 1].id)}
-          onAnswer={handleAnswer}
-        />
+        questions[currentQuestionIndex] && (
+          <Box>
+            <Typography variant='h6' gutterBottom>
+              {questions[currentQuestionIndex].text}
+            </Typography>
+            <QuestionRender
+            question={questions[currentQuestionIndex]}
+            currentAnswer={getCurrentAnswer(questions[currentQuestionIndex].id)}
+            onAnswer={handleAnswer}
+          />
+          </Box>
+        )
       )}
     </Box>
 

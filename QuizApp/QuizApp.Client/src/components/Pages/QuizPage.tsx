@@ -16,6 +16,7 @@ const QuizPage = () => {
     const fetchQuestions = async () => {
       try{
         const data = await getQuestions();
+        console.log("fetching questions", data)
         setQuestions(data)
       } catch(err){
         console.log(err)

@@ -21,7 +21,7 @@ const QuestionRender = ({ question, currentAnswer, onAnswer }: Props) => {
     case 'Checkbox':
       return (
         <CheckBoxQuestions
-          questions={question}
+          question={question}
           onAnswer={(answerIds) => onAnswer(question.id, 'Checkbox', answerIds)}
           selectedAnswerIds={currentAnswer?.selectedAnswerIds || []}
         />
