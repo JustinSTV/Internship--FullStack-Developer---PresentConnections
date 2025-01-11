@@ -1,18 +1,20 @@
-// Services/QuizService.cs
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using QuizApp.API.Data;
-using QuizApp.API.DTOs;
 using QuizApp.API.Models;
+using QuizApp.API.DTOs;
 
 namespace QuizApp.API.Services;
 
 public class QuizService : IQuizService
 {
     private readonly QuizDbContext _context;
+    private readonly IMapper _mapper;
 
-    public QuizService(QuizDbContext context)
+    public QuizService(QuizDbContext context, IMapper mapper)
     {
         _context = context;
+        _mapper = mapper;
     }
 
     public async Task<int> CalculateScore(QuizAttemptDto attempt)
@@ -58,19 +60,17 @@ public class QuizService : IQuizService
 
     public async Task<List<HighScoreDto>> GetHighScores(int count = 10)
     {
-        var highScores = await _context.QuizAttempts
+        return await _context.QuizAttempts
             .OrderByDescending(q => q.Score)
             .ThenByDescending(q => q.DateTime)
             .Take(count)
-            .Select((q, i) => new HighScoreDto
+            .Select(q => new HighScoreDto
             {
-                Position = i + 1,
+                Position = 0, // Will be set after query
                 Email = q.Email,
                 Score = q.Score,
                 DateTime = q.DateTime
             })
             .ToListAsync();
-
-        return highScores;
     }
 }
