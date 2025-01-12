@@ -10,6 +10,7 @@ interface Props {
 const CheckBoxQuestions = ({ question, onAnswer, selectedAnswerIds }: Props) => {
 
   const handleChange = (answerId: number) => {
+    //checking if answer is selected, if yes - remove it, else - add it
     const newSelectedAnswers = selectedAnswerIds.includes(answerId)
       ? selectedAnswerIds.filter(id => id !== answerId)
       : [...selectedAnswerIds, answerId]

@@ -12,8 +12,8 @@ const RenderSteps = ({ activeStep, questions }: Props) => {
       activeStep={activeStep}
       alternativeLabel
     >
-      {questions.map((_, index) => (
-        <Step key={index}>
+      {questions.map((question, index) => (
+        <Step key={question.id || index}>
           <StepLabel>{`Question ${index + 1}`}</StepLabel>
         </Step>
       ))}

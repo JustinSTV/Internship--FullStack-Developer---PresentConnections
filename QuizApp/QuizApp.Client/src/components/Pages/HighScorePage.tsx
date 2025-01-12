@@ -88,7 +88,7 @@ const HighScorePage = () => {
       color="primary" 
       onClick={handlePlayAgain}
     >
-    Play Again
+    Play
     </Button>
   </Container>
   );

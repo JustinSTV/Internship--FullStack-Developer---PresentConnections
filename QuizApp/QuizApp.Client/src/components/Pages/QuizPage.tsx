@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Typography, Box, Button } from '@mui/material';
+import { Container, Typography, Box } from '@mui/material';
 import { Question, QuizAttempt } from '../../types/quizTypes';
 import { getQuestions, submitQuiz } from '../../services/api';
 import QuizForm from '../QuizForm/QuizForm';
@@ -52,7 +52,6 @@ const QuizPage = () => {
           onSubmit={handleSubmit}
         />
       </Box>
-      <Button onClick={() => navigate('/high-scores')}>HighScores</Button>
     </Container>
   );
 }
