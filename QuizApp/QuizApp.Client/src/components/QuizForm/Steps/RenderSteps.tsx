@@ -8,7 +8,10 @@ interface Props {
 
 const RenderSteps = ({ activeStep, questions }: Props) => {
   return (
-    <Stepper activeStep={activeStep}>
+    <Stepper 
+      activeStep={activeStep}
+      alternativeLabel
+    >
       {questions.map((_, index) => (
         <Step key={index}>
           <StepLabel>{`Question ${index + 1}`}</StepLabel>
